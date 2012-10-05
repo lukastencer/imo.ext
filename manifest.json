@@ -14,8 +14,8 @@
       "matches" : [
         "*://imo.im/*"
       ],
-      "js" : ["jquery-1.7.2.min.js","contentscript.js","js/jquery.lightbox-0.5.min.js"],
-	  "css" : ["style.css","css/jquery.lightbox-0.5.css"],
+      "js" : ["jquery-1.7.2.min.js","contentscript.js","js/jquery.lightbox.js"],
+	  "css" : ["style.css","css/lightbox.css"],
       "run_at" : "document_idle",
       "all_frames" : false
     }
@@ -53,6 +53,13 @@
 	"images/lightbox-btn-next.gif",
 	"images/lightbox-btn-prev.gif",
 	"images/lightbox-ico-loading.gif",
+	"images/blank.gif",
+	"images/close.gif",
+	"images/closelabel.gif",
+	"images/next.gif",
+	"images/nextlabel.gif",
+	"images/prev.gif",
+	"images/prevlabel.gif",
 	"images/facebook.png",
 	"images/googleplus.png",
 	"images/linkedin.png",

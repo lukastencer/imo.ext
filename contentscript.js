@@ -163,7 +163,77 @@ function routineXHR(){
 		}
 	}
 	
+	zoomPicture();
+	
 	//dragFilesOut();	
+}
+
+function zoomPicture(){
+	var container = $('.meet-card-image');
+	//console.log(container);
+	if (container.length != 0)
+	{
+		for (var i = 0, item; item = container[i]; i++)
+		{
+		item=$(item);
+			if(item.find('#zoomBtn').length == 0)
+			{
+				var img = item.find('img');
+				var link = 'https://imo.im' + img.attr('src');
+				var zoom_imgurl = chrome.extension.getURL("zoom.png");
+				link = link.substring(0,link.length-7);
+				//console.log(link);			
+				
+				var clickSensor = $('<a id="zoomLink" class="lightbox" href="'+link+'" style="opacity:0"><div id="zoomBtn" style="border: 0px solid rgb(255,0,0); top: '+ (img.height()-15) +'px; left:0px; position: absolute; width:'+img.width()+'px; height: 15px; background: rgb(236,244,249); text-align: center;"><img src="'+zoom_imgurl+'" alt="zoomPicBtn" style="max-width:100%; max-height:100%;"></div></a>');			
+				
+				clickSensor.hover(
+					function(){
+						$(this).animate(
+							{
+								opacity:0.90
+							}
+						,300);
+					},
+					function(){
+						$(this).animate(
+							{
+								opacity:0.32
+							}
+						,300);
+					}
+				);
+				
+				item.mouseenter(
+					function(){
+						$(this).find('#zoomLink').animate(
+							{
+								opacity:0.32
+							}
+						,300);
+					});
+				item.mouseleave(
+					function(){
+						$(this).find('#zoomLink').animate(
+							{
+								opacity:0
+							}
+						,300);
+					}
+				);			
+				
+				var ximageBtnClose = chrome.extension.getURL('images/closelabel.gif');			
+				
+				item.append(clickSensor);
+				$('#zoomLink').lightbox(
+				{
+					fitToScreen: true,	
+					displayDownloadLink: true,
+					fileBottomNavCloseImage:ximageBtnClose				
+				}
+				);
+			}
+		}
+	}
 }
 
 function slideArrows(){
