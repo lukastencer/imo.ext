@@ -180,7 +180,7 @@ function zoomPicture(){
 			{
 				var img = item.find('img');
 				var link = 'https://imo.im' + img.attr('src');
-				var zoom_imgurl = chrome.extension.getURL("zoom.png");
+				var zoom_imgurl = chrome.extension.getURL("images/zoom.png");
 				link = link.substring(0,link.length-7);
 				//console.log(link);			
 				
@@ -346,8 +346,8 @@ function extendYoutube(){
 
 					var d = document;
 					var img = d.createElement("img");
-					var imgURL = chrome.extension.getURL("watch.png");
-					var imgURL_over = chrome.extension.getURL("watch_over.png");
+					var imgURL = chrome.extension.getURL("images/watch.png");
+					var imgURL_over = chrome.extension.getURL("images/watch_over.png");
 					img.src = imgURL;
 					img.height=12;
 					var newText = inner.slice(0, textInd) + "|"+ img.outerHTML + "" + inner.slice(textInd); //TODO namiesto booo tam dat extended odkaz					
@@ -482,9 +482,9 @@ function alertOffline(){	//bug, if you search before appending bells
 					var patt = RegExp('.*_');
 
 					var img = document.createElement("img");
-					var imgURL = chrome.extension.getURL("bell.png");
-					var imgURL_over = chrome.extension.getURL("bell_over.png");
-					var imgURL_active = chrome.extension.getURL("bell_active.png");					
+					var imgURL = chrome.extension.getURL("images/bell.png");
+					var imgURL_over = chrome.extension.getURL("images/bell_over.png");
+					var imgURL_active = chrome.extension.getURL("images/bell_active.png");					
 
 					img.height=20;
 					$(img).attr('class','text_details_bell');
